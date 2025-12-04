@@ -48,6 +48,18 @@ python --version
 
 ---
 
+
+
+
+
+
+
+
+
+
+
+
+
 ### 2. Archivos requeridos
 
 El proyecto se organiza en varios archivos:
@@ -67,7 +79,7 @@ Puedes ejecutar el programa de dos maneras:
 
 #### Opción 1: Desde VS Code
 * Abre la carpeta del proyecto en **Visual Studio Code**.  
-* Abre el archivo `principal.py`.  
+* Abre el archivo `main.py`.  
 * Haz clic en el botón **▷ “Correr”**.  
 
 #### Opción 2: Desde PowerShell o CMD
@@ -75,7 +87,7 @@ Puedes ejecutar el programa de dos maneras:
 * Escribe:  
 
 ```bash
-python principal.py
+python main.py
 ```
 
 ---
