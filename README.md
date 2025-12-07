@@ -84,10 +84,11 @@ PROYECTO_UNIDAD_2_LYA/
 │   ├── interfaz_usuario.py         ← Interfaz gráfica con Tkinter
 │   ├── pantalla_grafo.py           ← Visualización del grafo generado
 │   ├── main.py                     ← Punto de entrada
+|   |__pycache__/                    ← Archivos compilados (ignorar)
 │
 ├── Graphviz/                       ← Instalación local de Graphviz
-├── Instaladores/                   ← Instalador de Graphviz
-└── __pycache__/                    ← Archivos compilados (ignorar)
+└── Instaladores/                   ← Instalador de Graphviz
+ 
 ```
 ### 5. Ejecutar el programa
 
