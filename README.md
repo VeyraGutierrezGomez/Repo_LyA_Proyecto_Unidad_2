@@ -72,17 +72,23 @@ dot -V
    Successfully installed pillow-x.x.x
    ```
 
-### 4. Archivos requeridos
+### 4. Estructura del proyecto
 
-El proyecto se organiza en varios archivos:
+PROYECTO_UNIDAD_2_LYA/
+│
+├── Máquina_de_Mealy/
+│   ├── IMG/                       ← Imágenes de productos (A1.webp, B3.jpg, etc.)
+│   ├── definiciones.py            ← Enums y constantes
+│   ├── maquina.py                 ← Lógica FSM Mealy
+│   ├── salidas.py                 ← Funciones de salida (mostrar precio, entregar, etc.)
+│   ├── interfaz_usuario.py        ← Interfaz gráfica con Tkinter
+│   ├── pantalla_grafo.py          ← Visualización del grafo generado
+│   ├── main.py                    ← Punto de entrada
+│
+├── Graphviz/                      ← Instalación local de Graphviz
+├── Instaladores/                 ← Instalador de Graphviz
+└── __pycache__/                  ← Archivos compilados (ignorar)
 
-* `definiciones.py` → Estados, Entradas y Salidas.  
-* `maquina.py` → Lógica de transiciones de la máquina de Mealy.  
-* `salidas.py` → Funciones que muestran las salidas (precio, crédito, errores, etc.).  
-* `interfaz_usuario.py` → Interfaz gráfica con Tkinter.  
-* `pantalla_grafo.py` → Visualización del grafo generado.  
-* `main.py` → Integración y ejecución del sistema.  
-* Carpeta `IMG/` → Imágenes de productos (A1–D4).  
 
 ### 5. Ejecutar el programa
 
