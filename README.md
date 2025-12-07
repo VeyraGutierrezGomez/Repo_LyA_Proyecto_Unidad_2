@@ -77,18 +77,17 @@ dot -V
 PROYECTO_UNIDAD_2_LYA/
 │
 ├── Máquina_de_Mealy/
-│   ├── IMG/                       ← Imágenes de productos (A1.webp, B3.jpg, etc.)
-│   ├── definiciones.py            ← Enums y constantes
-│   ├── maquina.py                 ← Lógica FSM Mealy
-│   ├── salidas.py                 ← Funciones de salida (mostrar precio, entregar, etc.)
-│   ├── interfaz_usuario.py        ← Interfaz gráfica con Tkinter
-│   ├── pantalla_grafo.py          ← Visualización del grafo generado
-│   ├── main.py                    ← Punto de entrada
+│   ├── IMG/                        ← Imágenes de productos (A1.webp, B3.jpg, etc.)
+│   ├── definiciones.py             ← Enums y constantes
+│   ├── maquina.py                  ← Lógica FSM Mealy
+│   ├── salidas.py                  ← Funciones de salida (mostrar precio, entregar, etc.)
+│   ├── interfaz_usuario.py         ← Interfaz gráfica con Tkinter
+│   ├── pantalla_grafo.py           ← Visualización del grafo generado
+│   ├── main.py                     ← Punto de entrada
 │
-├── Graphviz/                      ← Instalación local de Graphviz
-├── Instaladores/                 ← Instalador de Graphviz
-└── __pycache__/                  ← Archivos compilados (ignorar)
-
+├── Graphviz/                       ← Instalación local de Graphviz
+├── Instaladores/                   ← Instalador de Graphviz
+└── __pycache__/                    ← Archivos compilados (ignorar)
 
 ### 5. Ejecutar el programa
 
