@@ -19,7 +19,6 @@ El programa cuenta con una **interfaz visual animada**, donde el usuario observa
 * Desarrollar una **interfaz gráfica** que muestre las transiciones y salidas en tiempo real.  
 * Documentar el proyecto con diagramas, tablas de transición y pruebas de funcionamiento.  
 
----
 
 ## Tecnologías utilizadas
 
