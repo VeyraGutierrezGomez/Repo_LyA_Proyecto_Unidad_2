@@ -73,7 +73,7 @@ dot -V
    ```
 
 ### 4. Estructura del proyecto
-
+```
 PROYECTO_UNIDAD_2_LYA/
 │
 ├── Máquina_de_Mealy/
@@ -88,7 +88,7 @@ PROYECTO_UNIDAD_2_LYA/
 ├── Graphviz/                       ← Instalación local de Graphviz
 ├── Instaladores/                   ← Instalador de Graphviz
 └── __pycache__/                    ← Archivos compilados (ignorar)
-
+```
 ### 5. Ejecutar el programa
 
 Puedes ejecutar el programa de dos maneras:
