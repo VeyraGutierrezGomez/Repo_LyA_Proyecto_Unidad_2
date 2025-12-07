@@ -2,22 +2,22 @@
 
 ## Descripción
 
-Este proyecto es una **simulación interactiva de un dispensador automático de comida** desarrollado en **Python (versión 3.13)** con interfaz gráfica mediante **Tkinter**.  
+Este proyecto es una **simulación interactiva de un dispensador automático de productos** desarrollada en **Python (versión 3.13)** con interfaz gráfica mediante **Tkinter** y visualización de estados con **Graphviz**.  
 
-El sistema modela el comportamiento de un **autómata finito tipo Mealy**, donde las **salidas dependen del estado actual y de la entrada recibida**.  
+El sistema modela un **autómata finito tipo Mealy**, donde las **salidas dependen del estado actual y de la entrada recibida**.  
 El dispensador permite seleccionar productos, insertar dinero, confirmar la compra, cancelar la operación (manual o automática tras 10 segundos) y manejar estados de error o mantenimiento.  
 
-El programa cuenta con una **interfaz visual**, donde el usuario observa las transiciones de estados y las salidas generadas (mostrar precio, acumular crédito, entregar producto, devolver cambio, mostrar errores).
+El programa cuenta con una **interfaz visual animada**, donde el usuario observa las transiciones de estados, el crédito acumulado, la animación de entrega en bandeja y el grafo de estados generado dinámicamente.
 
 ---
 
 ## Objetivos
 
 * Implementar una **máquina de Mealy** para modelar un sistema real (dispensador automático).  
-* Analizar y definir **entradas y salidas** del sistema.  
-* Diseñar el **autómata finito** con sus estados y transiciones.  
-* Simular el comportamiento del sistema en Python.  
-* Desarrollar una **interfaz gráfica** que muestre las transiciones de estados y las salidas en tiempo real.  
+* Definir claramente **entradas, salidas y estados** del sistema.  
+* Diseñar el **grafo de transiciones** y visualizarlo con Graphviz.  
+* Simular el comportamiento completo en Python.  
+* Desarrollar una **interfaz gráfica** que muestre las transiciones y salidas en tiempo real.  
 * Documentar el proyecto con diagramas, tablas de transición y pruebas de funcionamiento.  
 
 ---
@@ -25,12 +25,16 @@ El programa cuenta con una **interfaz visual**, donde el usuario observa las tra
 ## Tecnologías utilizadas
 
 * **Lenguaje:** Python 3.13  
-* **Bibliotecas:**  
+* **Bibliotecas:**
   * `tkinter` (interfaz gráfica)  
   * `enum` (definición de estados, entradas y salidas)  
   * `dataclasses` (manejo de contexto del sistema)  
-  * `threading` o `asyncio` (temporizador de cancelación automática)  
+  * `threading` (temporizador de cancelación automática)  
+  * `graphviz` (generación del grafo de estados en PNG)  
+  * `PIL` (Pillow, para manejo de imágenes de productos)  
 * **IDE recomendado:** Visual Studio Code  
+* **Imágenes:**  
+  * Carpeta `IMG/` con archivos `A1.webp` … `D4.webp` (productos)  
 
 ---
 
@@ -39,28 +43,39 @@ El programa cuenta con una **interfaz visual**, donde el usuario observa las tra
 ### 1. Instalar Python
 
 * Descarga **Python 3.13** desde la página oficial: [https://www.python.org/downloads/](https://www.python.org/downloads/)  
-* Durante la instalación, marca la casilla **“Add Python to PATH”**.  
+* Durante la instalación, **marca la casilla** “Add Python to PATH”.  
 * Verifica la instalación con:  
 
 ```bash
 python --version
 ```
 
----
+### 2. Instalar Graphviz
 
+* Usa el instalador incluido en la carpeta `Instaladores/`.  
+* Asegúrate de que el ejecutable `dot` esté accesible desde el sistema.  
+* Verifica con:  
 
+```bash
+dot -V
+```
 
+### 3. Instalar la biblioteca Pillow
 
+* Abre una terminal en tu computadora (PowerShell o CMD).
+* Copia y ejecuta el siguiente comando (tu ruta de instalación puede variar):
 
+   ```bash
+   C:\Users\usuario1\AppData\Local\Programs\Python\Python313\python.exe -m pip install pillow
+   ```
+* Espera a que finalice la instalación.
+   Si se instaló correctamente, verás un mensaje como:
 
+   ```
+   Successfully installed pillow-x.x.x
+   ```
 
-
-
-
-
-
-
-### 2. Archivos requeridos
+### 4. Archivos requeridos
 
 El proyecto se organiza en varios archivos:
 
@@ -68,12 +83,11 @@ El proyecto se organiza en varios archivos:
 * `maquina.py` → Lógica de transiciones de la máquina de Mealy.  
 * `salidas.py` → Funciones que muestran las salidas (precio, crédito, errores, etc.).  
 * `interfaz_usuario.py` → Interfaz gráfica con Tkinter.  
-* `simulacion.py` → Escenarios de prueba.  
+* `pantalla_grafo.py` → Visualización del grafo generado.  
 * `main.py` → Integración y ejecución del sistema.  
+* Carpeta `IMG/` → Imágenes de productos (A1–D4).  
 
----
-
-### 3. Ejecutar el programa
+### 5. Ejecutar el programa
 
 Puedes ejecutar el programa de dos maneras:
 
@@ -94,7 +108,7 @@ python main.py
 
 ## Funcionamiento general
 
-* **Estado Idle (Espera):** El sistema espera la selección de producto.  
+* **Estado INICIO:** El sistema espera la selección de producto.  
 * **Selección:** Se muestra el precio y se espera la inserción de dinero.  
 * **Pago:** Se acumula crédito y se muestra el faltante.  
 * **Confirmar compra:** Si el crédito ≥ precio, se entrega el producto y se devuelve cambio.  
@@ -109,24 +123,32 @@ python main.py
 * Simulación de un dispensador automático con máquina de Mealy.  
 * Visualización gráfica de estados y transiciones.  
 * Acumulación de crédito y cálculo de faltante.  
-* Entrega de producto y devolución de cambio.  
+* Animación de entrega en bandeja con imagen del producto.  
 * Cancelación manual y automática.  
-* Manejo de errores y modo mantenimiento.  
+* Generación dinámica del grafo de estados con Graphviz.  
+* Validación automática de imágenes de productos en carpeta `IMG/`.  
 
 ---
 
 ## Interfaz gráfica
 
+El programa utiliza **Tkinter** y se compone de tres áreas principales:
+
+* **Display:** Muestra código, nombre, precio y crédito acumulado.  
+* **Teclado virtual:** Botones A–D y 1–4 para seleccionar producto.  
+* **Ranura de monedas:** Botones $1, $5, $10, $20.  
+* **Bandeja de salida:** Animación de caída del producto.  
+* **Pantalla de grafo:** Visualización del grafo generado en PNG.  
+* **Botones de acción:** Confirmar, Cancelar, Ver Grafo.  
 
 ---
 
 ## Autores
 
 Proyecto académico desarrollado por:  
-* Rubi María Cobos Ramos
-* Kenia Elizondo Maravilla
+* Rubi María Cobos Ramos  
+* Kenia Elizondo Maravilla  
 * Ingridh Maricela Gracia Flores  
 * Veyra María Gutiérrez Gómez  
 * Jesús Emmanuel López Zuñiga  
 * Jennifer Elizabeth Yépez López  
-
