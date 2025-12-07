@@ -9,7 +9,6 @@ El dispensador permite seleccionar productos, insertar dinero, confirmar la comp
 
 El programa cuenta con una **interfaz visual animada**, donde el usuario observa las transiciones de estados, el crédito acumulado, la animación de entrega en bandeja y el grafo de estados generado dinámicamente.
 
----
 
 ## Objetivos
 
@@ -36,7 +35,6 @@ El programa cuenta con una **interfaz visual animada**, donde el usuario observa
 * **Imágenes:**  
   * Carpeta `IMG/` con archivos `A1.webp` … `D4.webp` (productos)  
 
----
 
 ## Instalación y configuración
 
@@ -104,8 +102,6 @@ Puedes ejecutar el programa de dos maneras:
 python main.py
 ```
 
----
-
 ## Funcionamiento general
 
 * **Estado INICIO:** El sistema espera la selección de producto.  
@@ -116,7 +112,6 @@ python main.py
 * **Error:** Se muestra mensaje de error (sin stock, insuficiente, selección inválida).  
 * **Mantenimiento:** El sistema se bloquea hasta que se desactive el modo servicio.  
 
----
 
 ## Funcionalidades principales
 
@@ -128,7 +123,6 @@ python main.py
 * Generación dinámica del grafo de estados con Graphviz.  
 * Validación automática de imágenes de productos en carpeta `IMG/`.  
 
----
 
 ## Interfaz gráfica
 
@@ -141,13 +135,11 @@ El programa utiliza **Tkinter** y se compone de tres áreas principales:
 * **Pantalla de grafo:** Visualización del grafo generado en PNG.  
 * **Botones de acción:** Confirmar, Cancelar, Ver Grafo.  
 
----
 
 ## Autores
 
 Proyecto académico desarrollado por:  
-* Rubi María Cobos Ramos  
-* Kenia Elizondo Maravilla  
+* Rubi María Cobos Ramos    
 * Ingridh Maricela Gracia Flores  
 * Veyra María Gutiérrez Gómez  
 * Jesús Emmanuel López Zuñiga  
